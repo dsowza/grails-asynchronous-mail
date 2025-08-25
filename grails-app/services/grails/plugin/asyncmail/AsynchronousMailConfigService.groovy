@@ -29,8 +29,8 @@ class AsynchronousMailConfigService {
     boolean isSendImmediately() { sendImmediately }
 
     @Value('${asynchronous.mail.clear.after.sent}')
-    private boolean clearAfterSent
-    boolean isClearAfterSent() { clearAfterSent }
+    private String clearAfterSent
+    def getClearAfterSent() { clearAfterSent == 'attachment' ? clearAfterSent : clearAfterSent.toBoolean() }
 
     @Value('${asynchronous.mail.disable}')
     private boolean disable
